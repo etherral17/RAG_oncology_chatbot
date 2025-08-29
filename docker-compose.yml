@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  rag-chatbot:
+    build: .
+    container_name: rag_oncology_chatbot
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
