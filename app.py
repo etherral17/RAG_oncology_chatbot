@@ -10,7 +10,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from pymongo import MongoClient
-
+from pymongo.server_api import ServerApi
+import ssl
+import certifi
 
 # known issue with libraries that use asyncio in a threaded environment
 # like Streamlit. We need to manually create and set an event loop.
@@ -162,3 +164,4 @@ except Exception as e:
     print(e)
 
     raise e
+
