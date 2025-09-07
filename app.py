@@ -48,7 +48,8 @@ if not all([MONGO_URI, GOOGLE_API_KEY]):
 def get_retriever():
     """Initializes and returns the MongoDB Atlas vector search retriever."""
     try:
-        client = MongoClient(MONGO_URI)
+        client = MongoClient(MONGO_URI,tls=True,
+    tlsCAFile=certifi.where())
         collection = client[DB_NAME][COLLECTION_NAME]
         
         if collection.count_documents({}) == 0:
@@ -159,4 +160,5 @@ try:
 except Exception as e:
     st.error(f"An unexpected error occurred: {e}")
     print(e)
+
     raise e
