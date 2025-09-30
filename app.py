@@ -80,7 +80,7 @@ def get_llm():
     """Initializes and returns the Gemini language model."""
     try:
         # This is the line that was causing the error
-        return ChatGoogleGenerativeAI(model="models/gemini-1.5-flash", temperature=0.2)
+        return ChatGoogleGenerativeAI(model="models/gemini-pro", temperature=0.2)
     except Exception as e:
         st.error(f"Failed to initialize the language model: {e}")
         return None
@@ -164,6 +164,7 @@ except Exception as e:
     print(e)
 
     raise e
+
 
 
 
